@@ -34,9 +34,9 @@ val VerdeCalmaClaro = Color(0xFFE8F5E9)
 @Composable
 fun DashboardPacienteScreen(navController: NavController) {
     val imageUrls = listOf(
-        "https://i.pinimg.com/736x/1a/2b/3c/1a2b3c.jpg",
-        "https://i.pinimg.com/736x/4d/5e/6f/4d5e6f.jpg",
-        "https://i.pinimg.com/736x/7g/8h/9i/7g8h9i.jpg"
+        "https://i.pinimg.com/736x/dd/82/52/dd82529a8e37c4dde145c51b627aabd4.jpg",
+        "https://i.pinimg.com/736x/1c/b4/c4/1cb4c456096320deeaf356a7eab76b3e.jpg",
+        "https://i.pinimg.com/736x/84/fc/c2/84fcc2c477332f560480c96d14a32b46.jpg"
     )
 
     var currentImageIndex by remember { mutableStateOf(Random.nextInt(imageUrls.size)) }

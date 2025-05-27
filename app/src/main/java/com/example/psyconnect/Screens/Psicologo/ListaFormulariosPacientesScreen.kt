@@ -8,8 +8,6 @@ import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.Card
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.collectAsState
-import androidx.compose.runtime.getValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
@@ -17,16 +15,24 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
-import com.example.psyconnect.ViewModel.PsicologoFormulariosViewModel
 import com.example.psyconnect.ui.theme.AzulProfundoClaro
 import com.example.psyconnect.ui.theme.AzulSuaveClaro
 
 @Composable
-fun ListaFormulariosPacienteScreen(
-    navController: NavController,
-    viewModel: PsicologoFormulariosViewModel
+fun ListaFormulariosPacientesScreen(
+    navController: NavController
 ) {
-    val formularios by viewModel.formularios.collectAsState(initial = emptyList())
+    // Datos simulados estáticos para diseño
+    val formularios = listOf(
+        Formulario("Formulario de Ansiedad", listOf(
+            "¿Con qué frecuencia te sientes ansioso?" to "Frecuentemente",
+            "¿Has tenido ataques de pánico?" to "No"
+        )),
+        Formulario("Formulario de Sueño", listOf(
+            "¿Cuántas horas duermes en promedio?" to "6 horas",
+            "¿Tienes problemas para conciliar el sueño?" to "Sí"
+        ))
+    )
 
     Box(
         modifier = Modifier
@@ -80,3 +86,9 @@ fun ListaFormulariosPacienteScreen(
         }
     }
 }
+
+// Clase de datos para formulario estático
+data class Formulario(
+    val titulo: String,
+    val preguntas: List<Pair<String, String>>
+)

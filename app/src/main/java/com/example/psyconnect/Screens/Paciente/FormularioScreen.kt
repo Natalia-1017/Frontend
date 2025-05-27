@@ -1,4 +1,4 @@
-package com.example.psyconnect.Interfaces.Paciente
+/*package com.example.psyconnect.Interfaces.Paciente
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
@@ -13,11 +13,12 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation.NavController
 import com.example.psyconnect.Model.FormularioData
-import com.example.psyconnect.ViewModel.PsicologoFormulariosViewModel // importa tu ViewModel aquí
-import com.example.psyconnect.Model.PreguntaFormulario
-import com.example.psyconnect.Model.RespuestaFormulario
+import com.example.psyconnect.ViewModel.PsicologoFormulariosViewModel
+import com.example.psyconnect.ViewModel.PsicologoFormulariosViewModelFactory // importa la factory
+import com.example.psyconnect.RetrofitClient
 
 @Composable
 fun FormularioScreen(
@@ -118,3 +119,17 @@ fun FormularioScreen(
         }
     }
 }
+
+// --- NUEVO: Contenedor donde creas el ViewModel con la Factory y llamas FormularioScreen ---
+@Composable
+fun FormularioScreenContainer(navController: NavController) {
+    val factory = PsicologoFormulariosViewModelFactory(
+        formularioApi = RetrofitClient.formularioApi,
+        preguntaApi = RetrofitClient.preguntaFormularioApi
+    )
+    val viewModel: PsicologoFormulariosViewModel = viewModel(factory = factory)
+
+    FormularioScreen(navController = navController, psicologoFormulariosViewModel = viewModel)
+
+}
+*/

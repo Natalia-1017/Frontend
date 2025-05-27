@@ -17,20 +17,20 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
-import com.example.psyconnect.Model.FormularioAsignado
-import com.example.psyconnect.ViewModel.PsicologoFormulariosViewModel
+
 
 @Composable
 fun AsignarFormularioScreen(
-    navController: NavController,
-    viewModel: PsicologoFormulariosViewModel,
-    pacientes: List<String>
+    navController: NavController
 ) {
     var pacienteSeleccionado by remember { mutableStateOf("") }
     var nombreFormulario by remember { mutableStateOf("") }
     var preguntaActual by remember { mutableStateOf("") }
     var preguntas by remember { mutableStateOf(listOf<String>()) }
     var expanded by remember { mutableStateOf(false) }
+
+    // Ejemplo temporal de pacientes para dropdown
+    val pacientes = listOf("Paciente 1", "Paciente 2", "Paciente 3")
 
     Box(
         modifier = Modifier
@@ -129,13 +129,7 @@ fun AsignarFormularioScreen(
 
                 Button(
                     onClick = {
-                        val formulario = FormularioAsignado(
-                            paciente = pacienteSeleccionado,
-                            nombre = nombreFormulario,
-                            preguntas = preguntas
-                        )
-                        viewModel.asignarFormulario(formulario)
-                        navController.popBackStack()
+                        // Aquí va la acción de asignar (dejamos vacío)
                     },
                     enabled = pacienteSeleccionado.isNotBlank()
                             && nombreFormulario.isNotBlank()

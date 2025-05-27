@@ -2,7 +2,6 @@ package com.example.psyconnect.Interfaces
 
 import android.content.res.Configuration
 import androidx.compose.foundation.BorderStroke
-import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
@@ -15,13 +14,12 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalConfiguration
-import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
-import com.example.psyconnect.R
+import coil.compose.AsyncImage
 
 // Colores personalizados
 val AzulSuaveClaro = Color(0xFFE1F5FE)
@@ -67,8 +65,9 @@ fun TopSection(modifier: Modifier) {
                 verticalArrangement = Arrangement.Center,
                 horizontalAlignment = Alignment.CenterHorizontally
             ) {
-                Image(
-                    painter = painterResource(id = R.drawable.logo),
+                AsyncImage(
+                    //model = "https://cdn-icons-png.flaticon.com/512/6432/6432781.png", //
+                    model = "https://images.vexels.com/media/users/3/245952/isolated/preview/65b7299997b573a0d6bd05525c37cb60-mentalhealth-cerebros-faltwashinkcontouroverlay-18.png",
                     contentDescription = "Logo PsyConnect",
                     modifier = Modifier.size(200.dp)
                 )
